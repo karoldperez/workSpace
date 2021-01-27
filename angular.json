@@ -2,5 +2,86 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ws-soap": {
+      "projectType": "library",
+      "root": "projects/ws-soap",
+      "sourceRoot": "projects/ws-soap/src",
+      "prefix": "enl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ws-soap/tsconfig.lib.json",
+            "project": "projects/ws-soap/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ws-soap/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ws-soap/src/test.ts",
+            "tsConfig": "projects/ws-soap/tsconfig.spec.json",
+            "karmaConfig": "projects/ws-soap/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ws-soap/tsconfig.lib.json",
+              "projects/ws-soap/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ws-prueba": {
+      "projectType": "library",
+      "root": "projects/ws-prueba",
+      "sourceRoot": "projects/ws-prueba/src",
+      "prefix": "enl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ws-prueba/tsconfig.lib.json",
+            "project": "projects/ws-prueba/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ws-prueba/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ws-prueba/src/test.ts",
+            "tsConfig": "projects/ws-prueba/tsconfig.spec.json",
+            "karmaConfig": "projects/ws-prueba/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ws-prueba/tsconfig.lib.json",
+              "projects/ws-prueba/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "ws-soap"
 }

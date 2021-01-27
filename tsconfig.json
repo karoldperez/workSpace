@@ -11,13 +11,27 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "types": [
+      "node"
+    ],
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ws-soap": [
+        "dist/ws-soap/ws-soap",
+        "dist/ws-soap"
+      ],
+      "ws-prueba": [
+        "dist/ws-prueba/ws-prueba",
+        "dist/ws-prueba"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "enableIvy": false
   }
 }
